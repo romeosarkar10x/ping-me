@@ -1,2 +1,486 @@
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
+
+/* ═══════════════════════════════════════════════════════════════
+   VALHALLA THEME — Design System
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+    /* ── Gold & Bronze palette ── */
+    --color-gold-50: #fdf9ed;
+    --color-gold-100: #f9f0d0;
+    --color-gold-200: #f2dfa0;
+    --color-gold-300: #e8c960;
+    --color-gold-400: #d4a934;
+    --color-gold-500: #c4931d;
+    --color-gold-600: #a77316;
+    --color-gold-700: #845414;
+    --color-gold-800: #6d4318;
+    --color-gold-900: #5d381a;
+
+    /* ── Mead / Amber accent ── */
+    --color-mead-400: #f0a830;
+    --color-mead-500: #d48f1a;
+    --color-mead-600: #b47412;
+
+    /* ── Rune / Deep slate-blue ── */
+    --color-rune-50: #f0f1f8;
+    --color-rune-100: #dfe1ef;
+    --color-rune-200: #c5c7e0;
+    --color-rune-300: #9fa2ca;
+    --color-rune-400: #7477b0;
+    --color-rune-500: #585b96;
+    --color-rune-600: #45477a;
+    --color-rune-700: #3a3b63;
+    --color-rune-800: #333454;
+    --color-rune-900: #1b1c35;
+    --color-rune-950: #0f0f1f;
+
+    /* ── Frost palette (for light mode accents) ── */
+    --color-frost-50: #f5f8fc;
+    --color-frost-100: #eaf0f8;
+    --color-frost-200: #d0dff0;
+    --color-frost-300: #a8c5e2;
+    --color-frost-400: #79a6d0;
+    --color-frost-500: #5889bb;
+
+    /* ── Signal levels (themed) ── */
+    --color-signal-critical: #dc3545;
+    --color-signal-high: #e07020;
+    --color-signal-mid: #d4a934;
+    --color-signal-casual: #4a9e6a;
+    --color-signal-minimal: #5889bb;
+
+    /* ── Fonts ── */
+    --font-norse: "Cinzel", "Palatino Linotype", serif;
+    --font-norse-decorative: "Cinzel Decorative", "Cinzel", serif;
+    --font-body: "Crimson Text", "Georgia", serif;
+    --font-ui: "Inter", system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOATING BACKGROUND ANIMATIONS
+   Multiple keyframes for variety — each piece picks one.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Slow orbital drift */
+@keyframes norseDrift1 {
+    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); }
+    25%  { transform: translate(30px, -20px) rotate(calc(var(--start-rot) + 15deg)); }
+    50%  { transform: translate(-10px, -40px) rotate(calc(var(--start-rot) + 5deg)); }
+    75%  { transform: translate(-30px, -10px) rotate(calc(var(--start-rot) - 10deg)); }
+    100% { transform: translate(0, 0)       rotate(var(--start-rot)); }
+}
+
+/* Gentle figure-8 */
+@keyframes norseDrift2 {
+    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); }
+    25%  { transform: translate(20px, 25px)  rotate(calc(var(--start-rot) + 20deg)); }
+    50%  { transform: translate(0, 0)        rotate(calc(var(--start-rot) + 40deg)); }
+    75%  { transform: translate(-20px, 25px) rotate(calc(var(--start-rot) + 20deg)); }
+    100% { transform: translate(0, 0)        rotate(var(--start-rot)); }
+}
+
+/* Vertical bobbing */
+@keyframes norseDrift3 {
+    0%   { transform: translate(0, 0)       rotate(var(--start-rot)) scale(1); }
+    33%  { transform: translate(15px, -35px) rotate(calc(var(--start-rot) + 12deg)) scale(1.05); }
+    66%  { transform: translate(-15px, -15px) rotate(calc(var(--start-rot) - 8deg)) scale(0.95); }
+    100% { transform: translate(0, 0)       rotate(var(--start-rot)) scale(1); }
+}
+
+/* Wide horizontal sweep */
+@keyframes norseDrift4 {
+    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); opacity: var(--base-opacity); }
+    30%  { transform: translate(40px, -10px) rotate(calc(var(--start-rot) + 25deg)); opacity: calc(var(--base-opacity) * 1.3); }
+    60%  { transform: translate(-25px, 15px) rotate(calc(var(--start-rot) - 15deg)); opacity: calc(var(--base-opacity) * 0.7); }
+    100% { transform: translate(0, 0)       rotate(var(--start-rot)); opacity: var(--base-opacity); }
+}
+
+/* Pulsing glow drift */
+@keyframes norseDrift5 {
+    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); filter: drop-shadow(0 0 0px currentColor); }
+    50%  { transform: translate(10px, -30px) rotate(calc(var(--start-rot) + 30deg)); filter: drop-shadow(0 0 6px currentColor); }
+    100% { transform: translate(0, 0)       rotate(var(--start-rot)); filter: drop-shadow(0 0 0px currentColor); }
+}
+
+.norse-bg-piece {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition: color 0.5s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RUNIC PARTICLE ANIMATION (floating upward embers)
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes runeFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+        transform: translateY(80vh) rotate(30deg) scale(1);
+    }
+    50% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.rune-particle {
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
+    font-family: var(--font-norse-decorative);
+    animation: runeFloat linear infinite;
+    will-change: transform, opacity;
+}
+
+.dark .rune-particle {
+    color: rgba(212, 169, 52, 0.18);
+    text-shadow: 0 0 10px rgba(212, 169, 52, 0.35);
+}
+
+.rune-particle {
+    color: rgba(132, 84, 20, 0.12);
+    text-shadow: 0 0 6px rgba(212, 169, 52, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOWING EDGES — Card border glow
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+}
+
+.card-glow {
+    position: relative;
+}
+
+.card-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    animation: borderGlow 4s ease-in-out infinite;
+}
+
+.dark .card-glow::before {
+    background: linear-gradient(135deg, rgba(212, 169, 52, 0.3), rgba(164, 115, 22, 0.05), rgba(212, 169, 52, 0.2));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NORSE SEPARATOR (Knotwork line)
+   ═══════════════════════════════════════════════════════════════ */
+
+.norse-separator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin: 0;
+}
+
+.norse-separator::before,
+.norse-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+}
+
+.dark .norse-separator::before,
+.dark .norse-separator::after {
+    background: linear-gradient(90deg, transparent, rgba(212, 169, 52, 0.3), transparent);
+}
+
+.norse-separator::before,
+.norse-separator::after {
+    background: linear-gradient(90deg, transparent, rgba(132, 84, 20, 0.25), transparent);
+}
+
+.norse-separator__rune {
+    font-family: var(--font-norse-decorative);
+    font-size: 14px;
+    letter-spacing: 6px;
+}
+
+.dark .norse-separator__rune {
+    color: rgba(212, 169, 52, 0.4);
+}
+
+.norse-separator__rune {
+    color: rgba(132, 84, 20, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NORSE BUTTON — Base style for all interactive elements
+   Carved stone / hammered metal aesthetic
+   ═══════════════════════════════════════════════════════════════ */
+
+.norse-btn {
+    position: relative;
+    font-family: var(--font-norse);
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+}
+
+/* Inner shimmer sweep on hover */
+.norse-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232, 201, 96, 0.15),
+        transparent
+    );
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.norse-btn:hover::after {
+    left: 120%;
+}
+
+/* Primary action (gold gradient, dark text) */
+.norse-btn-primary {
+    background: linear-gradient(135deg, #e8c960 0%, #d4a934 40%, #c4931d 100%);
+    color: #1b1c35;
+    border: 1.5px solid rgba(232, 201, 96, 0.6);
+    box-shadow:
+        0 1px 0 0 rgba(232, 201, 96, 0.4) inset,
+        0 -1px 0 0 rgba(132, 84, 20, 0.3) inset,
+        0 4px 12px rgba(212, 169, 52, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.norse-btn-primary:hover {
+    background: linear-gradient(135deg, #f2dfa0 0%, #e8c960 40%, #d4a934 100%);
+    box-shadow:
+        0 1px 0 0 rgba(232, 201, 96, 0.6) inset,
+        0 -1px 0 0 rgba(132, 84, 20, 0.3) inset,
+        0 6px 20px rgba(212, 169, 52, 0.35),
+        0 0 30px rgba(212, 169, 52, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.norse-btn-primary:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 -1px 0 0 rgba(232, 201, 96, 0.3) inset,
+        0 1px 0 0 rgba(132, 84, 20, 0.4) inset,
+        0 2px 6px rgba(212, 169, 52, 0.15);
+}
+
+/* Ghost / outline button */
+.norse-btn-ghost {
+    background: transparent;
+    border: 1.5px solid rgba(212, 169, 52, 0.25);
+    box-shadow: 0 0 0 0 rgba(212, 169, 52, 0);
+}
+
+.norse-btn-ghost:hover {
+    border-color: rgba(212, 169, 52, 0.5);
+    background: rgba(212, 169, 52, 0.06);
+    box-shadow: 0 0 15px rgba(212, 169, 52, 0.1);
+    transform: translateY(-1px);
+}
+
+.norse-btn-ghost:active {
+    transform: translateY(0px);
+    background: rgba(212, 169, 52, 0.1);
+}
+
+/* ── Signal level pill tokens ── */
+.norse-pill {
+    position: relative;
+    font-family: var(--font-norse);
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.norse-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.norse-pill:hover::before {
+    opacity: 1;
+}
+
+.norse-pill--active {
+    transform: translateY(-1px);
+}
+
+/* Rune-glow effect on active pill dot */
+.norse-pill--active .norse-pill__dot {
+    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NORSE INPUT FIELDS — Carved stone troughs
+   ═══════════════════════════════════════════════════════════════ */
+
+.norse-input {
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.norse-input:focus {
+    box-shadow:
+        0 0 0 2px rgba(212, 169, 52, 0.15),
+        0 0 15px rgba(212, 169, 52, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SEND BUTTON GLOW PULSE
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes sendPulse {
+    0%, 100% {
+        box-shadow:
+            0 1px 0 0 rgba(232, 201, 96, 0.4) inset,
+            0 -1px 0 0 rgba(132, 84, 20, 0.3) inset,
+            0 4px 15px rgba(212, 169, 52, 0.2),
+            0 0 20px rgba(212, 169, 52, 0.08);
+    }
+    50% {
+        box-shadow:
+            0 1px 0 0 rgba(232, 201, 96, 0.5) inset,
+            0 -1px 0 0 rgba(132, 84, 20, 0.3) inset,
+            0 6px 25px rgba(212, 169, 52, 0.35),
+            0 0 40px rgba(212, 169, 52, 0.15);
+    }
+}
+
+.send-btn-glow {
+    animation: sendPulse 3s ease-in-out infinite;
+}
+
+.send-btn-glow:hover {
+    animation: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(212, 169, 52, 0.25);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(132, 84, 20, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 169, 52, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PING SENT ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes runeReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+        filter: blur(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+.rune-reveal {
+    animation: runeReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shieldPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.2;
+    }
+}
+
+.shield-pulse {
+    animation: shieldPulse 2.5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SELECTION COLOR
+   ═══════════════════════════════════════════════════════════════ */
+
+::selection {
+    background: rgba(212, 169, 52, 0.3);
+    color: inherit;
+}
+
+.dark ::selection {
+    background: rgba(212, 169, 52, 0.4);
+}
