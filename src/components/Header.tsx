@@ -9,8 +9,8 @@ type HeaderProps = {
 
 export function Header({ isDark, onToggle }: HeaderProps) {
     return (
-        <header className="sticky top-0 z-50 border-b border-gold-400/15 dark:border-gold-500/10 bg-[#f5f0e6]/85 dark:bg-rune-950/80 backdrop-blur-xl transition-colors duration-500">
-            <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <header className="sticky top-0 z-50 border-b border-gold-400/20 dark:border-gold-400/10 bg-[#f5f0e6]/35 dark:bg-rune-950/30 backdrop-blur-md backdrop-saturate-150 shadow-[0_4px_30px_rgba(0,0,0,0.08),inset_0_1px_0_0_rgba(255,255,255,0.45)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,0.06)] transition-colors duration-500">
+            <div className="px-6 h-16 flex items-center justify-between">
                 {/* ─── Brand Mark ─── */}
                 <div className="flex items-center gap-3">
                     {/* Valknut-inspired triple ping */}

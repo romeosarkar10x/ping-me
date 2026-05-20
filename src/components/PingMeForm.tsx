@@ -166,10 +166,10 @@ export function PingMeForm() {
                 <div className="relative z-10 p-8 pt-10">
                     {/* Title */}
                     <div className="mb-2 text-center">
-                        <h1 className="font-(--font-norse-decorative) text-3xl text-gold-800 dark:text-gold-300 tracking-wider">
+                        <h1 className="font-(--font-norse-decorative) text-4xl text-gold-800 dark:text-gold-300 tracking-wider">
                             Ping Me
                         </h1>
-                        <p className="mt-2 font-(--font-body) text-sm text-gold-700/60 dark:text-gold-400/50 italic">
+                        <p className="mt-2 font-(--font-body) text-base text-gold-700/60 dark:text-gold-400/50 italic">
                             Whisper into the void — your message shall echo through the sacred halls.
                         </p>
                     </div>
@@ -181,7 +181,7 @@ export function PingMeForm() {
                     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                         {/* ─── Name Field ─── */}
                         <div className="flex flex-col gap-2">
-                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-sm font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Your Name
                             </label>
                             <input
@@ -191,13 +191,13 @@ export function PingMeForm() {
                                 value={form.name}
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                                 required
-                                className="norse-input w-full px-4 py-3 rounded-xl border border-gold-400/20 dark:border-gold-500/10 bg-[#f5f0e6]/60 dark:bg-rune-900/40 text-gold-900 dark:text-gold-100 placeholder-gold-400/40 dark:placeholder-gold-500/25 text-sm focus:outline-none focus:border-gold-500/50 transition-all duration-300"
+                                className="norse-input w-full px-4 py-3 rounded-xl border border-gold-400/20 dark:border-gold-500/10 bg-[#f5f0e6]/60 dark:bg-rune-900/40 text-gold-900 dark:text-gold-100 placeholder-gold-400/40 dark:placeholder-gold-500/25 text-base focus:outline-none focus:border-gold-500/50 transition-all duration-300"
                             />
                         </div>
 
                         {/* ─── Signal Level ─── */}
                         <div className="flex flex-col gap-2.5">
-                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-sm font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Signal Level
                             </label>
                             <div className="flex flex-wrap gap-2">
@@ -206,7 +206,7 @@ export function PingMeForm() {
                                         key={level.id}
                                         type="button"
                                         onClick={() => setForm({ ...form, level: level.id })}
-                                        className={`norse-pill inline-flex items-center gap-1.5 text-xs px-3.5 py-2 rounded-lg border transition-all duration-250 cursor-pointer tracking-wide ${
+                                        className={`norse-pill inline-flex items-center gap-1.5 text-sm px-3.5 py-2 rounded-lg border transition-all duration-250 cursor-pointer tracking-wide ${
                                             form.level === level.id
                                                 ? `norse-pill--active ${level.activePill}`
                                                 : level.pill
@@ -223,7 +223,7 @@ export function PingMeForm() {
 
                         {/* ─── Message ─── */}
                         <div className="flex flex-col gap-2">
-                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-sm font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Message
                             </label>
                             <textarea
@@ -233,7 +233,7 @@ export function PingMeForm() {
                                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                                 required
                                 rows={4}
-                                className="norse-input w-full px-4 py-3 rounded-xl border border-gold-400/20 dark:border-gold-500/10 bg-[#f5f0e6]/60 dark:bg-rune-900/40 text-gold-900 dark:text-gold-100 placeholder-gold-400/40 dark:placeholder-gold-500/25 text-sm focus:outline-none focus:border-gold-500/50 resize-none transition-all duration-300"
+                                className="norse-input w-full px-4 py-3 rounded-xl border border-gold-400/20 dark:border-gold-500/10 bg-[#f5f0e6]/60 dark:bg-rune-900/40 text-gold-900 dark:text-gold-100 placeholder-gold-400/40 dark:placeholder-gold-500/25 text-base focus:outline-none focus:border-gold-500/50 resize-none transition-all duration-300"
                             />
                         </div>
 
@@ -246,7 +246,7 @@ export function PingMeForm() {
                             id="btn-send"
                             type="submit"
                             disabled={sending}
-                            className="norse-btn norse-btn-primary send-btn-glow w-full py-3.5 rounded-xl text-sm font-bold tracking-[0.15em] uppercase disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
+                            className="norse-btn norse-btn-primary send-btn-glow w-full py-3.5 rounded-xl text-base font-bold tracking-[0.15em] uppercase disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
                         >
                             {sending ? (
                                 <span className="flex items-center justify-center gap-2.5">
