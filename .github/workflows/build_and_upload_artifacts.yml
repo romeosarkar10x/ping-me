@@ -18,6 +18,8 @@ jobs:
 
             - name: Install dependencies
               run: pnpm install
+              with:
+                  version: latest
 
             - name: Build project
               run: pnpm run build
