@@ -1,0 +1,34 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - main
+        paths-ignore:
+            - "**/*.md"
+            - ".vscode/**"
+            - ".gitignore"
+    workflow_dispatch:
+
+jobs:
+    check_formatting:
+        uses: ./.github/workflows/check_formatting.yml
+
+    lint:
+        needs: check_formatting
+        uses: ./.github/workflows/lint.yml
+
+    type_check:
+        needs: lint
+        uses: ./.github/workflows/type_check.yml
+
+    build_and_upload_artifacts:
+        needs: type_check
+        uses: ./.github/workflows/build_and_upload_artifacts.yml
+
+    deploy_to_github_pages:
+        needs: build_and_upload_artifacts
+        uses: ./.github/workflows/deploy_to_github_pages.yml
+        permissions:
+            id-token: write
+            pages: write
