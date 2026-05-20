@@ -5,9 +5,10 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc -b && vite build",
+        "build": "vite build",
         "lint": "eslint --flag unstable_native_nodejs_ts_config .",
         "preview": "vite preview",
+        "type-check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json",
         "format": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,yml,yaml,html}\"",
         "format:check": "prettier --check \"**/*.{js,ts,tsx,css,scss,json,yml,yaml,html}\"",
         "prepare": "husky"
