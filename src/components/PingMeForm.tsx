@@ -102,16 +102,16 @@ export function PingMeForm() {
                                 className="absolute inline-flex h-14 w-14 rounded-full bg-gold-400 opacity-10 shield-pulse"
                                 style={{ animationDelay: "0.5s" }}
                             />
-                            <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-gold-300 via-gold-500 to-gold-700 flex items-center justify-center shadow-[0_0_20px_rgba(212,169,52,0.4)]">
+                            <div className="relative w-10 h-10 rounded-full bg-linear-to-br from-gold-300 via-gold-500 to-gold-700 flex items-center justify-center shadow-[0_0_20px_rgba(212,169,52,0.4)]">
                                 <span className="text-rune-950 text-lg font-bold">ᚦ</span>
                             </div>
                         </div>
 
                         <div>
-                            <p className="font-[var(--font-norse)] text-2xl font-bold text-gold-800 dark:text-gold-300 mb-2 tracking-wider">
+                            <p className="font-(--font-norse) text-2xl text-gold-800 dark:text-gold-300 mb-2 tracking-wider">
                                 Ping Dispatched!
                             </p>
-                            <p className="font-[var(--font-body)] text-sm text-gold-700/70 dark:text-gold-400/60 leading-relaxed">
+                            <p className="font-(--font-body) text-sm text-gold-700/70 dark:text-gold-400/60 leading-relaxed">
                                 <span className="font-semibold text-gold-800 dark:text-gold-300">{form.name}</span>
                                 {"'s "}
                                 <span
@@ -151,13 +151,13 @@ export function PingMeForm() {
 
                 {/* Decorative corner runes */}
                 <div
-                    className="absolute top-3 left-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
+                    className="absolute top-3 left-4 font-(--font-norse-decorative) text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
                     aria-hidden="true"
                 >
                     ᛟ
                 </div>
                 <div
-                    className="absolute top-3 right-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
+                    className="absolute top-3 right-4 font-(--font-norse-decorative) text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
                     aria-hidden="true"
                 >
                     ᚠ
@@ -166,10 +166,10 @@ export function PingMeForm() {
                 <div className="relative z-10 p-8 pt-10">
                     {/* Title */}
                     <div className="mb-2 text-center">
-                        <h1 className="font-[var(--font-norse-decorative)] text-3xl font-bold text-gold-800 dark:text-gold-300 tracking-wider">
+                        <h1 className="font-(--font-norse-decorative) text-3xl text-gold-800 dark:text-gold-300 tracking-wider">
                             Ping Me
                         </h1>
-                        <p className="mt-2 font-[var(--font-body)] text-sm text-gold-700/60 dark:text-gold-400/50 italic">
+                        <p className="mt-2 font-(--font-body) text-sm text-gold-700/60 dark:text-gold-400/50 italic">
                             Whisper into the void — your message shall echo through the sacred halls.
                         </p>
                     </div>
@@ -181,7 +181,7 @@ export function PingMeForm() {
                     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                         {/* ─── Name Field ─── */}
                         <div className="flex flex-col gap-2">
-                            <label className="font-[var(--font-norse)] text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Your Name
                             </label>
                             <input
@@ -197,7 +197,7 @@ export function PingMeForm() {
 
                         {/* ─── Signal Level ─── */}
                         <div className="flex flex-col gap-2.5">
-                            <label className="font-[var(--font-norse)] text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Signal Level
                             </label>
                             <div className="flex flex-wrap gap-2">
@@ -223,7 +223,7 @@ export function PingMeForm() {
 
                         {/* ─── Message ─── */}
                         <div className="flex flex-col gap-2">
-                            <label className="font-[var(--font-norse)] text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
+                            <label className="text-xs font-semibold text-gold-700/80 dark:text-gold-400/60 uppercase tracking-[0.2em]">
                                 Message
                             </label>
                             <textarea

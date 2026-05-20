@@ -20,13 +20,13 @@ export function Header({ isDark, onToggle }: HeaderProps) {
                             className="absolute inline-flex h-5 w-5 rounded-full bg-gold-400 opacity-10 animate-ping"
                             style={{ animationDelay: "0.4s" }}
                         />
-                        <span className="relative inline-flex h-3 w-3 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 shadow-[0_0_12px_rgba(212,169,52,0.5)]" />
+                        <span className="relative inline-flex h-3 w-3 rounded-full bg-linear-to-br from-gold-300 to-gold-600 shadow-[0_0_12px_rgba(212,169,52,0.5)]" />
                     </div>
                     <div className="flex flex-col">
-                        <span className="font-[var(--font-norse)] text-lg font-bold tracking-wider text-gold-800 dark:text-gold-300 select-none leading-tight">
+                        <span className="text-lg font-bold tracking-wider text-gold-800 dark:text-gold-300 select-none leading-tight">
                             PING.ME
                         </span>
-                        <span className="font-[var(--font-body)] text-[10px] text-gold-600/60 dark:text-gold-400/40 tracking-[0.3em] uppercase leading-none select-none">
+                        <span className="font-(--font-body) text-[10px] text-gold-600/60 dark:text-gold-400/40 tracking-[0.3em] uppercase leading-none select-none">
                             Hall of Echoes
                         </span>
                     </div>
@@ -34,7 +34,7 @@ export function Header({ isDark, onToggle }: HeaderProps) {
 
                 {/* ─── Controls ─── */}
                 <div className="flex items-center gap-3">
-                    <span className="font-[var(--font-norse)] text-xs px-2.5 py-1 rounded-md border border-gold-500/20 dark:border-gold-500/15 text-gold-700 dark:text-gold-400 bg-gold-400/5 select-none tracking-wider">
+                    <span className="font-(--font-norse) text-xs px-2.5 py-1 rounded-md border border-gold-500/20 dark:border-gold-500/15 text-gold-700 dark:text-gold-400 bg-gold-400/5 select-none tracking-wider">
                         v{VERSION}
                     </span>
                     <button

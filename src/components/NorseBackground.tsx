@@ -6,15 +6,15 @@ import { useMemo } from "react";
    ═══════════════════════════════════════════════════════════════ */
 
 const RELICS = [
-    { src: "/relics/mjolnir.png", alt: "Mjolnir" },
-    { src: "/relics/viking_axe.png", alt: "Viking Axe" },
-    { src: "/relics/viking_shield.png", alt: "Viking Shield" },
-    { src: "/relics/valknut.png", alt: "Valknut" },
-    { src: "/relics/rune_stone.png", alt: "Rune Stone" },
-    { src: "/relics/sword.png", alt: "Sword" },
-    { src: "/relics/helm.png", alt: "Helm" },
+    { src: "relics/mjolnir.png", alt: "Mjolnir" },
+    { src: "relics/viking_axe.png", alt: "Viking Axe" },
+    { src: "relics/viking_shield.png", alt: "Viking Shield" },
+    { src: "relics/valknut.png", alt: "Valknut" },
+    { src: "relics/rune_stone.png", alt: "Rune Stone" },
+    { src: "relics/sword.png", alt: "Sword" },
+    { src: "relics/helm.png", alt: "Helm" },
 
-    { src: "/relics/spear.png", alt: "Spear" },
+    { src: "relics/spear.png", alt: "Spear" },
 ];
 
 const ANIM_NAMES = ["norseDrift1", "norseDrift2", "norseDrift3", "norseDrift4", "norseDrift5"];
@@ -109,9 +109,9 @@ export function NorseBackground({ count = 30 }: { count?: number }) {
                         }}
                     >
                         <img
-                            src={relic.src}
+                            src={`${relic.src}`}
                             alt=""
-                            className="w-full h-full object-contain dark:brightness-75 dark:sepia dark:hue-rotate-[15deg] transition-[filter] duration-500"
+                            className="w-full h-full object-contain dark:brightness-75 dark:sepia dark:hue-rotate-15 transition-[filter] duration-500"
                             loading="lazy"
                             draggable={false}
                         />
