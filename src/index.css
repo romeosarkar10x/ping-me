@@ -62,7 +62,9 @@
    BASE STYLES
    ═══════════════════════════════════════════════════════════════ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -85,43 +87,92 @@ body {
 
 /* Slow orbital drift */
 @keyframes norseDrift1 {
-    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); }
-    25%  { transform: translate(30px, -20px) rotate(calc(var(--start-rot) + 15deg)); }
-    50%  { transform: translate(-10px, -40px) rotate(calc(var(--start-rot) + 5deg)); }
-    75%  { transform: translate(-30px, -10px) rotate(calc(var(--start-rot) - 10deg)); }
-    100% { transform: translate(0, 0)       rotate(var(--start-rot)); }
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+    }
+    25% {
+        transform: translate(30px, -20px) rotate(calc(var(--start-rot) + 15deg));
+    }
+    50% {
+        transform: translate(-10px, -40px) rotate(calc(var(--start-rot) + 5deg));
+    }
+    75% {
+        transform: translate(-30px, -10px) rotate(calc(var(--start-rot) - 10deg));
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+    }
 }
 
 /* Gentle figure-8 */
 @keyframes norseDrift2 {
-    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); }
-    25%  { transform: translate(20px, 25px)  rotate(calc(var(--start-rot) + 20deg)); }
-    50%  { transform: translate(0, 0)        rotate(calc(var(--start-rot) + 40deg)); }
-    75%  { transform: translate(-20px, 25px) rotate(calc(var(--start-rot) + 20deg)); }
-    100% { transform: translate(0, 0)        rotate(var(--start-rot)); }
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+    }
+    25% {
+        transform: translate(20px, 25px) rotate(calc(var(--start-rot) + 20deg));
+    }
+    50% {
+        transform: translate(0, 0) rotate(calc(var(--start-rot) + 40deg));
+    }
+    75% {
+        transform: translate(-20px, 25px) rotate(calc(var(--start-rot) + 20deg));
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+    }
 }
 
 /* Vertical bobbing */
 @keyframes norseDrift3 {
-    0%   { transform: translate(0, 0)       rotate(var(--start-rot)) scale(1); }
-    33%  { transform: translate(15px, -35px) rotate(calc(var(--start-rot) + 12deg)) scale(1.05); }
-    66%  { transform: translate(-15px, -15px) rotate(calc(var(--start-rot) - 8deg)) scale(0.95); }
-    100% { transform: translate(0, 0)       rotate(var(--start-rot)) scale(1); }
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot)) scale(1);
+    }
+    33% {
+        transform: translate(15px, -35px) rotate(calc(var(--start-rot) + 12deg)) scale(1.05);
+    }
+    66% {
+        transform: translate(-15px, -15px) rotate(calc(var(--start-rot) - 8deg)) scale(0.95);
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--start-rot)) scale(1);
+    }
 }
 
 /* Wide horizontal sweep */
 @keyframes norseDrift4 {
-    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); opacity: var(--base-opacity); }
-    30%  { transform: translate(40px, -10px) rotate(calc(var(--start-rot) + 25deg)); opacity: calc(var(--base-opacity) * 1.3); }
-    60%  { transform: translate(-25px, 15px) rotate(calc(var(--start-rot) - 15deg)); opacity: calc(var(--base-opacity) * 0.7); }
-    100% { transform: translate(0, 0)       rotate(var(--start-rot)); opacity: var(--base-opacity); }
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+        opacity: var(--base-opacity);
+    }
+    30% {
+        transform: translate(40px, -10px) rotate(calc(var(--start-rot) + 25deg));
+        opacity: calc(var(--base-opacity) * 1.3);
+    }
+    60% {
+        transform: translate(-25px, 15px) rotate(calc(var(--start-rot) - 15deg));
+        opacity: calc(var(--base-opacity) * 0.7);
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+        opacity: var(--base-opacity);
+    }
 }
 
 /* Pulsing glow drift */
 @keyframes norseDrift5 {
-    0%   { transform: translate(0, 0)       rotate(var(--start-rot)); filter: drop-shadow(0 0 0px currentColor); }
-    50%  { transform: translate(10px, -30px) rotate(calc(var(--start-rot) + 30deg)); filter: drop-shadow(0 0 6px currentColor); }
-    100% { transform: translate(0, 0)       rotate(var(--start-rot)); filter: drop-shadow(0 0 0px currentColor); }
+    0% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+        filter: drop-shadow(0 0 0px currentColor);
+    }
+    50% {
+        transform: translate(10px, -30px) rotate(calc(var(--start-rot) + 30deg));
+        filter: drop-shadow(0 0 6px currentColor);
+    }
+    100% {
+        transform: translate(0, 0) rotate(var(--start-rot));
+        filter: drop-shadow(0 0 0px currentColor);
+    }
 }
 
 .norse-bg-piece {
@@ -180,8 +231,13 @@ body {
    ═══════════════════════════════════════════════════════════════ */
 
 @keyframes borderGlow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.9; }
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.9;
+    }
 }
 
 .card-glow {
@@ -200,7 +256,9 @@ body {
 
 .dark .card-glow::before {
     background: linear-gradient(135deg, rgba(212, 169, 52, 0.3), rgba(164, 115, 22, 0.05), rgba(212, 169, 52, 0.2));
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
     mask-composite: exclude;
 }
 
@@ -269,12 +327,7 @@ body {
     left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(232, 201, 96, 0.15),
-        transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(232, 201, 96, 0.15), transparent);
     transition: left 0.6s ease;
     pointer-events: none;
 }
@@ -363,7 +416,9 @@ body {
 
 /* Rune-glow effect on active pill dot */
 .norse-pill--active .norse-pill__dot {
-    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+    box-shadow:
+        0 0 8px currentColor,
+        0 0 16px currentColor;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -386,7 +441,8 @@ body {
    ═══════════════════════════════════════════════════════════════ */
 
 @keyframes sendPulse {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow:
             0 1px 0 0 rgba(232, 201, 96, 0.4) inset,
             0 -1px 0 0 rgba(132, 84, 20, 0.3) inset,
@@ -458,7 +514,8 @@ body {
 }
 
 @keyframes shieldPulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.6;
     }

@@ -43,11 +43,7 @@ export function Header({ isDark, onToggle }: HeaderProps) {
                         title={isDark ? "Summon the Dawn" : "Call the Night"}
                         className="norse-btn norse-btn-ghost w-9 h-9 flex items-center justify-center rounded-lg text-gold-700 dark:text-gold-400"
                     >
-                        {isDark ? (
-                            <MdLightMode className="w-4.5 h-4.5" />
-                        ) : (
-                            <MdDarkMode className="w-4.5 h-4.5" />
-                        )}
+                        {isDark ? <MdLightMode className="w-4.5 h-4.5" /> : <MdDarkMode className="w-4.5 h-4.5" />}
                     </button>
                 </div>
             </div>

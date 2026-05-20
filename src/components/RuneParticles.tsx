@@ -10,10 +10,10 @@ const ELDER_FUTHARK = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖ
 type Particle = {
     id: number;
     char: string;
-    left: number;      // percentage
-    size: number;       // rem
-    duration: number;   // seconds
-    delay: number;      // seconds
+    left: number; // percentage
+    size: number; // rem
+    duration: number; // seconds
+    delay: number; // seconds
 };
 
 function generateParticles(count: number): Particle[] {

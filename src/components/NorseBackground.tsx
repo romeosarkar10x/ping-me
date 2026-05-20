@@ -6,15 +6,15 @@ import { useMemo } from "react";
    ═══════════════════════════════════════════════════════════════ */
 
 const RELICS = [
-    { src: "/relics/mjolnir.png",       alt: "Mjolnir" },
-    { src: "/relics/viking_axe.png",    alt: "Viking Axe" },
+    { src: "/relics/mjolnir.png", alt: "Mjolnir" },
+    { src: "/relics/viking_axe.png", alt: "Viking Axe" },
     { src: "/relics/viking_shield.png", alt: "Viking Shield" },
-    { src: "/relics/valknut.png",       alt: "Valknut" },
-    { src: "/relics/rune_stone.png",    alt: "Rune Stone" },
-    { src: "/relics/sword.png",         alt: "Sword" },
-    { src: "/relics/helm.png",          alt: "Helm" },
+    { src: "/relics/valknut.png", alt: "Valknut" },
+    { src: "/relics/rune_stone.png", alt: "Rune Stone" },
+    { src: "/relics/sword.png", alt: "Sword" },
+    { src: "/relics/helm.png", alt: "Helm" },
 
-    { src: "/relics/spear.png",         alt: "Spear" },
+    { src: "/relics/spear.png", alt: "Spear" },
 ];
 
 const ANIM_NAMES = ["norseDrift1", "norseDrift2", "norseDrift3", "norseDrift4", "norseDrift5"];
@@ -24,7 +24,7 @@ type Piece = {
     relicIndex: number;
     x: number;
     y: number;
-    size: number;       // rem
+    size: number; // rem
     rotation: number;
     opacity: number;
     animName: string;
@@ -54,18 +54,24 @@ function generatePieces(count: number): Piece[] {
 
         const x = col * cellW + rand() * cellW * 0.65 + cellW * 0.12;
         const y = row * cellH + rand() * cellH * 0.55 + cellH * 0.18;
-        const size = 7 + rand() * 9;            // 7–16 rem
+        const size = 7 + rand() * 9; // 7–16 rem
         const rotation = rand() * 360 - 180;
-        const opacity = 0.18 + rand() * 0.17;   // 18%–35%
+        const opacity = 0.18 + rand() * 0.17; // 18%–35%
         const animName = ANIM_NAMES[Math.floor(rand() * ANIM_NAMES.length)];
         const animDuration = 20 + rand() * 28; // 20–48s
-        const animDelay = rand() * -30;         // negative → starts mid-cycle
+        const animDelay = rand() * -30; // negative → starts mid-cycle
 
         pieces.push({
             id: i,
             relicIndex: Math.floor(rand() * RELICS.length),
-            x, y, size, rotation, opacity,
-            animName, animDuration, animDelay,
+            x,
+            y,
+            size,
+            rotation,
+            opacity,
+            animName,
+            animDuration,
+            animDelay,
         });
     }
 

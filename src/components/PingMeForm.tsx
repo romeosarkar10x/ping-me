@@ -117,7 +117,9 @@ export function PingMeForm() {
                                 <span
                                     className={`norse-pill norse-pill--active inline-flex items-center gap-1.5 text-xs px-2 py-0.5 rounded-md border ${selectedLevel.activePill}`}
                                 >
-                                    <span className={`norse-pill__dot inline-block w-1.5 h-1.5 rounded-full ${selectedLevel.dot}`} />
+                                    <span
+                                        className={`norse-pill__dot inline-block w-1.5 h-1.5 rounded-full ${selectedLevel.dot}`}
+                                    />
                                     {selectedLevel.norseName}
                                 </span>{" "}
                                 raven carries the message across the realms.
@@ -148,10 +150,16 @@ export function PingMeForm() {
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,var(--tw-gradient-stops))] from-gold-400/8 via-transparent to-transparent pointer-events-none" />
 
                 {/* Decorative corner runes */}
-                <div className="absolute top-3 left-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none" aria-hidden="true">
+                <div
+                    className="absolute top-3 left-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
+                    aria-hidden="true"
+                >
                     ᛟ
                 </div>
-                <div className="absolute top-3 right-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none" aria-hidden="true">
+                <div
+                    className="absolute top-3 right-4 font-[var(--font-norse-decorative)] text-gold-400/10 dark:text-gold-400/8 text-2xl select-none pointer-events-none"
+                    aria-hidden="true"
+                >
                     ᚠ
                 </div>
 
