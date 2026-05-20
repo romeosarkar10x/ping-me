@@ -15,11 +15,11 @@ jobs:
 
             - name: Set up 'pnpm'
               uses: pnpm/action-setup@v6
+              with:
+                  version: latest
 
             - name: Install dependencies
               run: pnpm install
-              with:
-                  version: latest
 
             - name: Type check
               run: pnpm run type-check
