@@ -2,9 +2,7 @@
     "editor.detectIndentation": false,
     "editor.tabSize": 4,
     "editor.indentSize": "tabSize",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false,
-
 
     "tailwindCSS.experimental.configFile": "src/index.css",
     "emeraldwalk.runonsave": {
@@ -14,5 +12,11 @@
                 "cmd": "pnpx prettier --write ${file}"
             }
         ]
+    },
+
+    "[yaml]": {
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.indentSize": "tabSize"
     }
 }
