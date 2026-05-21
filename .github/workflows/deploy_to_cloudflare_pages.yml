@@ -1,6 +1,7 @@
 name: Build and deploy to cloudflare pages
 
 on:
+    workflow_dispatch:
     workflow_call:
 
 jobs:
