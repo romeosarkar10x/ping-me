@@ -1,14 +1,14 @@
-name: Build and upload artifacts
+name: Build and upload artifact
 
 on:
     workflow_call:
         outputs:
             artifact_url:
                 description: "Artifact URL"
-                value: ${{ jobs.build_and_upload_artifacts.artifact_url }}
+                value: ${{ jobs.build_and_upload_artifact.artifact_url }}
 
 jobs:
-    build_and_upload_artifacts:
+    build_and_upload_artifact:
         runs-on: ubuntu-latest
         outputs:
             artifact_url: ${{ steps.upload_artifact.outputs.artifact-url }}

@@ -22,10 +22,10 @@ jobs:
         needs: lint
         uses: ./.github/workflows/type_check.yml
 
-    build_and_upload_artifacts:
+    build_and_upload_artifact:
         needs: type_check
-        uses: ./.github/workflows/build_and_upload_artifacts.yml
+        uses: ./.github/workflows/build_and_upload_artifact.yml
 
     deploy_to_cloudflare_pages:
-        needs: build_and_upload_artifacts
+        needs: build_and_upload_artifact
         uses: ./.github/workflows/deploy_to_cloudflare_pages.yml
