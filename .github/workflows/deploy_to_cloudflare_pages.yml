@@ -4,7 +4,7 @@ on:
     workflow_call:
 
 jobs:
-    build_and_upload_artifacts:
+    deploy_to_cloudflare_pages:
         runs-on: ubuntu-latest
         environment: cloudflare_pages
         steps:
