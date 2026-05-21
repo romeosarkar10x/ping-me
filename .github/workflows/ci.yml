@@ -26,9 +26,6 @@ jobs:
         needs: type_check
         uses: ./.github/workflows/build_and_upload_artifacts.yml
 
-    deploy_to_github_pages:
+    deploy_to_cloudflare_pages:
         needs: build_and_upload_artifacts
         uses: ./.github/workflows/deploy_to_cloudflare_pages.yml
-        permissions:
-            id-token: write
-            pages: write
