@@ -11,7 +11,7 @@
         "type-check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json",
         "format": "prettier --write \"**/*.{js,ts,tsx,css,scss,json,yml,yaml,html}\"",
         "format:check": "prettier --check \"**/*.{js,ts,tsx,css,scss,json,yml,yaml,html}\"",
-        "prepare": "husky"
+        "prepare": "git config core.hooksPath .githooks"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.3.0",
@@ -36,7 +36,6 @@
         "eslint-plugin-react-hooks": "^7.1.1",
         "eslint-plugin-react-refresh": "^0.5.2",
         "globals": "^17.6.0",
-        "husky": "^9.1.7",
         "typescript": "~6.0.2",
         "typescript-eslint": "^8.59.2",
         "vite": "^8.0.12"
