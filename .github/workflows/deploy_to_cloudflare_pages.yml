@@ -28,6 +28,7 @@ jobs:
               run: |
                   echo Account ID: $CLOUDFLARE_ACCOUNT_ID
                   echo API token: $CLOUDFLARE_API_TOKEN
+                  env
                   pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
               env:
                   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
