@@ -24,6 +24,9 @@ jobs:
               with:
                   version: latest
 
+            - name: List all files and directories
+              run: ls -la
+
             - name: Deploy to 'Cloudflare Pages'
               run: pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
               env:
