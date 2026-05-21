@@ -28,30 +28,5 @@ jobs:
 
     deploy_to_cloudflare_pages:
         needs: build_and_upload_artifact
-        runs-on: ubuntu-latest
-        environment: cloudflare_pages
-        steps:
-            - name: Download artifact
-              uses: actions/download-artifact@v8
-              with:
-                  name: ping_me
-
-            - name: Set up 'node'
-              uses: actions/setup-node@v6
-              with:
-                  node-version: latest
-
-            - name: Set up 'pnpm'
-              uses: pnpm/action-setup@v6
-              with:
-                  version: latest
-
-            - name: Deploy to 'Cloudflare Pages'
-              run: |
-                  echo Account ID: $CLOUDFLARE_ACCOUNT_ID
-                  echo API token: $CLOUDFLARE_API_TOKEN
-                  env
-                  pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
-              env:
-                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        uses: ./.github/workflows/deploy_to_cloudflare_pages.yml
+        secrets: inherit
