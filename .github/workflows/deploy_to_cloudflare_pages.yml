@@ -24,7 +24,10 @@ jobs:
                   version: latest
 
             - name: Deploy to 'Cloudflare Pages'
-              run: pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
+              run: |
+                  pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
+                  echo Account ID: $CLOUDFLARE_ACCOUNT_ID
+                  echo API token: $CLOUDFLARE_API_TOKEN
               env:
                   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
