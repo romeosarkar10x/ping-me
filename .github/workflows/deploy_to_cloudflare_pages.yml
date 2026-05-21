@@ -1,0 +1,17 @@
+name: Build and deploy to cloudflare pages
+
+on:
+    workflow_call:
+
+jobs:
+    build_and_upload_artifacts:
+        runs-on: ubuntu-latest
+        environment: cloudflare_pages
+        steps:
+            - name: Download artifact
+              uses: actions/download-artifact@v8
+              with:
+                  name: ping_me
+
+            - name: Deploy to 'Cloudflare Pages'
+              run: pnpm dlx wrangler pages deploy --project-name ping-romeosarkar10x --branch main

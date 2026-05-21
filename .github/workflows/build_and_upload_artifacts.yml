@@ -2,10 +2,16 @@ name: Build and upload artifacts
 
 on:
     workflow_call:
+        outputs:
+            artifact_url:
+                description: "Artifact URL"
+                value: ${{ jobs.build_and_upload_artifacts.artifact_url }}
 
 jobs:
     build_and_upload_artifacts:
         runs-on: ubuntu-latest
+        outputs:
+            artifact_url: ${{ steps.upload_artifact.outputs.artifact-url }}
         steps:
             - name: Checkout repository
               uses: actions/checkout@v6
@@ -28,9 +34,14 @@ jobs:
 
             - name: Upload artifact
               id: upload_artifact
-              uses: actions/upload-pages-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
+                  name: ping_me
                   path: dist
+                  if-no-files-found: error
 
             - name: Echo artifact ID
-              run: echo ${{ steps.upload_artifact.outputs.artifact_id }}
+              run: echo ${{ steps.upload_artifact.outputs.artifact-id }}
+
+            - name: Echo artifact URL
+              run: echo ${{ steps.upload_artifact.outputs.artifact-url }}
