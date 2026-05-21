@@ -1,4 +1,4 @@
-name: Deploy to 'Cloudflare Pages' (PRODUCTION)
+name: Deploy to 'Cloudflare Pages' (PREVIEW)
 
 on:
     workflow_call:
@@ -6,7 +6,7 @@ on:
 jobs:
     deploy_to_cloudflare_pages:
         runs-on: ubuntu-latest
-        environment: cloudflare_pages
+        environment: cloudflare_pages_preview
         steps:
             - name: Download artifact
               uses: actions/download-artifact@v8
@@ -26,7 +26,7 @@ jobs:
                   version: latest
 
             - name: Deploy to 'Cloudflare Pages'
-              run: pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch main
+              run: pnpm dlx wrangler pages deploy dist --project-name ping-romeosarkar10x --branch preview
               env:
                   CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

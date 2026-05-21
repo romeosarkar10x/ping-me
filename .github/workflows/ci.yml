@@ -26,7 +26,7 @@ jobs:
         needs: type_check
         uses: ./.github/workflows/build_and_upload_artifact.yml
 
-    deploy_to_cloudflare_pages:
+    deploy:
         needs: build_and_upload_artifact
-        uses: ./.github/workflows/deploy_to_cloudflare_pages.yml
+        uses: ./.github/workflows/deploy.yml
         secrets: inherit

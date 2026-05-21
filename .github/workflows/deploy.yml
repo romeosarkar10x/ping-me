@@ -1,0 +1,14 @@
+name: Deploy
+
+on:
+    workflow_call:
+
+jobs:
+    deploy_to_cloudflare_pages_preview:
+        uses: ./.github/workflows/deploy_to_cloudflare_pages_preview.yml
+        secrets: inherit
+
+    deploy_to_cloudflare_pages:
+        needs: deploy_to_cloudflare_pages_preview
+        uses: ./.github/workflows/deploy_to_cloudflare_pages.yml
+        secrets: inherit
