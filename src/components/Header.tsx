@@ -1,4 +1,5 @@
 import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { PiGithubLogoDuotone } from "react-icons/pi";
 import { twMerge } from "tailwind-merge";
 
 const VERSION = "0.0.0";
@@ -42,6 +43,15 @@ export function Header({ isDark, onToggle }: HeaderProps) {
                 <span className="font-(--font-norse) text-xs px-2.5 py-1 rounded-md border border-gold-500/20 dark:border-gold-500/15 text-gold-700 dark:text-gold-400 bg-gold-400/5 select-none tracking-wider">
                     v{VERSION}
                 </span>
+                <a
+                    aria-label="github-url"
+                    title="Github URL"
+                    className="norse-btn norse-btn-ghost w-9 h-9 flex items-center justify-center rounded-lg text-gold-700 dark:text-gold-400"
+                    href="https://github.com"
+                    target="_blank"
+                >
+                    <PiGithubLogoDuotone />
+                </a>
                 <button
                     onClick={onToggle}
                     aria-label={isDark ? "Summon the dawn" : "Call the night"}
