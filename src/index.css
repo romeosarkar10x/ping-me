@@ -541,3 +541,8 @@ body {
 .dark ::selection {
     background: rgba(212, 169, 52, 0.4);
 }
+
+body div#root {
+    width: 100vw;
+    height: 100vh;
+}

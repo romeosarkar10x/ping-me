@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { PingMeForm } from "./components/PingMeForm";
 import { RuneParticles } from "./components/RuneParticles";
 import { NorseBackground } from "./components/NorseBackground";
+import Footer from "./components/Footer";
 
 function App() {
     const [isDark, setIsDark] = useState(true);
@@ -16,7 +17,7 @@ function App() {
     }, [isDark]);
 
     return (
-        <div className="min-h-screen relative transition-colors duration-500">
+        <div className="w-full h-full relative transition-colors duration-500">
             {/* ─── Base color ─── */}
             <div className="fixed inset-0 -z-10 bg-[#f5f0e6] dark:bg-rune-950 transition-colors duration-500" />
 
@@ -27,18 +28,12 @@ function App() {
             <RuneParticles count={40} />
 
             {/* ─── Content ─── */}
-            <div className="relative z-10">
+            <div className="h-full w-full relative z-10 flex flex-col justify-between">
                 <Header isDark={isDark} onToggle={() => setIsDark((d) => !d)} />
-                <main className="flex items-center justify-center px-4 py-16 min-h-[calc(100vh-4rem)]">
+                <main className="flex items-center justify-center">
                     <PingMeForm />
                 </main>
-
-                {/* Footer flavor text */}
-                <footer className="relative z-10 text-center pb-6">
-                    <p className="font-[var(--font-body)] text-xs text-gold-700/30 dark:text-gold-400/20 italic tracking-wide">
-                        Forged in the fires of Muspelheim · Carried by Odin's ravens
-                    </p>
-                </footer>
+                <Footer />
             </div>
         </div>
     );
